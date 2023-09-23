@@ -1,0 +1,81 @@
+#SideBarWrapper {
+  height: 100 vh;
+  width: 14.3%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ShopStoreLogo {
+  width: 49px;
+  height: 45px;
+  margin-left: 29px;
+}
+
+#BookStoreWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
+  margin-top: 51px;
+  width: 100%;
+}
+
+#BookWorldLabel > span {
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+#BookWorldLabel {
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+#UnOrderdListWrapper {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-top: 53px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  row-gap: 24px;
+}
+
+.LiElement {
+  display: flex;
+  flex-direction: row;
+  margin-left: 41px;
+  align-items: center;
+  height: 39px;
+  width: 69.35%;
+  list-style: none;
+  column-gap: 15px;
+  cursor: pointer;
+}
+
+.LiElement > a {
+  width: 70px;
+
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: #131313;
+}
+
+.LiElement > img {
+  filter: invert(48%);
+}
