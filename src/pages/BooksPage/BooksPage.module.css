@@ -1,0 +1,12 @@
+#BooksPageWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+}
+
+#UpperControleWrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
