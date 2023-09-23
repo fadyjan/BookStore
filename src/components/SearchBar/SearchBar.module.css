@@ -1,0 +1,30 @@
+#SearchBarWrapper{
+    display: flex;
+    column-gap: 24px;
+}
+
+#BooksTittle{
+font-family: 'Poppins';
+font-size: 24px;
+font-weight: 500;
+line-height: 36px;
+letter-spacing: 0px;
+text-align: left;
+
+}
+
+#SearchInput{
+    background-color: white;
+}
+
+#SearchInput:focus{
+    outline: none;
+    border-bottom: 1px solid red;
+
+}
+
+#SearchIcon{
+    position: relative;
+    left: 80px;
+    color: green;
+}
