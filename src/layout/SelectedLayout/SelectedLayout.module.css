@@ -1,0 +1,5 @@
+#SelectedLayoutWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 82%;
+}
