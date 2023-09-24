@@ -1,9 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import ArrayOfData from '../../data/books.json'
+import ArrayofAuthors from '../../data/Authors.json'
 
-const allAuthors = Array.from(
-    new Set(ArrayOfData.flatMap((book) => book.authors))
-  );
 
 export function countBooksByAuthor(authorName) {
     const booksByAuthor = ArrayOfData.filter(book =>
@@ -15,9 +13,8 @@ export function countBooksByAuthor(authorName) {
 
 const initialState = {
     OriginalData: ArrayOfData,
-    CurrentBooksData: ArrayOfData.slice(1, 10),
-    allAuthors: allAuthors,
-    searchOutput: ArrayOfData,
+    allAuthors: ArrayofAuthors,
+    searchOutput: [],
     searchStatus: "notIntailezed",
 };
 
@@ -42,6 +39,20 @@ export const dataSlice = createSlice({
             state.searchOutput.push(newBook);
 
         },
+        addNewAuthor: (state, action) => {
+            // Extract book data from the action payload
+            const {author} = action.payload;
+            const currentID = state.allAuthors.length + 2
+            // Create a new book object
+            const newAuthor = {
+                '_id': currentID,
+                'AuthorName': author,
+            };
+
+            // Add the new book to OriginalData
+            state.allAuthors.push(newAuthor);
+
+        },
         deleteBookById: (state, action) => {
             const bookIdToDelete = action.payload;
             state.OriginalData = state.OriginalData.filter(
@@ -50,6 +61,26 @@ export const dataSlice = createSlice({
 
             state.searchOutput = state.searchOutput.filter(
                 (book) => book._id !== bookIdToDelete
+            );
+        },resetSearchOutput: (state, action) => {
+            if (action.payload === 'Books') {
+              // Reset searchOutput for Books
+              state.searchOutput = action.payload.OriginalBooksData
+            } else if (action.payload === 'Author') {
+              // Reset searchOutput for Author
+              state.searchOutput = action.payload.OriginalAuthorsData
+            }
+          
+            // You can also add additional conditions or logic as needed
+          
+            // Return the updated state
+            return state;
+          },
+
+        deleteAuthorById: (state, action) => {
+            const authorIdToDelete = action.payload;
+            state.allAuthors = state.allAuthors.filter(
+                (author) => author._id !== authorIdToDelete
             );
         },
 
@@ -65,5 +96,5 @@ export const dataSlice = createSlice({
 
 
 
-export const { deleteBookById, addNewBook, setSearchOutput, setSearchTerm } = dataSlice.actions
+export const { deleteBookById,resetSearchOutput,deleteAuthorById, addNewBook, addNewAuthor,setSearchOutput, setSearchTerm } = dataSlice.actions
 export default dataSlice.reducer;
