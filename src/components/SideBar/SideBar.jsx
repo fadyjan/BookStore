@@ -5,15 +5,22 @@ import AuthorLogo from "../../assets/AuthorLogo.png";
 import BooksLogo from "../../assets/BooksLogo.png";
 import StoresLogo from "../../assets/StoresLogo.png";
 import ShopLogo from "../../assets/ShopLogo.png";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { setSelected } from "../../store/ReduxSlices/SideBarSlice";
+import { resetSearchOutput } from "../../store/ReduxSlices/DataSlices";
 
 export const SideBar = () => {
+  const OriginalBooksData = useSelector((state) => state.DataBase.OriginalData);
+  const OriginalAuthorsData = useSelector((state) => state.DataBase.allAuthors);
+  
   const dispatch = useDispatch();
 
   const HandleSelection = (e)=>{
     const SelectedOption = e.target.closest('li').getAttribute('litittile') 
+    console.log(OriginalBooksData,OriginalAuthorsData)
     dispatch(setSelected(SelectedOption));
+    dispatch(resetSearchOutput(SelectedOption,OriginalBooksData,OriginalAuthorsData));
+
   }
   return (
     <div id={module.SideBarWrapper}>
