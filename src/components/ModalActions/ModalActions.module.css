@@ -1,0 +1,27 @@
+#ActionSection {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: end;
+    column-gap: 16px;
+  }
+  
+  #ActionSection > button {
+    width: 90px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  #Cancel {
+    background-color: white;
+    border: solid 2px #d86128;
+    border-radius: 4px;
+  }
+  
+  #Submit {
+    background-color: #d86128;
+    border: none;
+    border-radius: 4px;
+    color: white;
+  }
+  
