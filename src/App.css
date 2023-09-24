@@ -36,4 +36,5 @@ body{
     background-color: #f1f1f1;
     display: flex;
     column-gap: 33px;
+    min-height: 100vh;
 }

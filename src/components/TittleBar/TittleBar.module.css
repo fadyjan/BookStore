@@ -1,52 +1,50 @@
-#TittleBarWrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    height: 92px;
-    margin-top: 48px;
+#TittleBarWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  height: 92px;
+  margin-top: 48px;
+  border-bottom: 0.2px solid #b0b0b0;
 }
 
-#TittleBar{
-    font-family: 'Poppins';
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 36px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #3E435D;
+#TittleBar {
+  font-family: "Poppins";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #3e435d;
 }
 
-#MiniTittleBar{
-    font-family: 'Poppins';
-font-size: 16px;
-font-weight: 300;
-line-height: 24px;
-letter-spacing: 0px;
-text-align: left;
-color: #3E435D;
-
+#MiniTittleBar {
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #3e435d;
 }
 
-#SelectedTittleWrapper{
-    display: flex;
-    flex-direction: column;
+#SelectedTittleWrapper {
+  display: flex;
+  flex-direction: column;
 }
 
-
-#CustomerTittleWrapper{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 52px;
-    column-gap: 8px;
+#CustomerTittleWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 52px;
+  column-gap: 8px;
 }
 
-#CustomerTittleWrapper >label{
-    font-family: 'Poppins';
-font-size: 24px;
-font-weight: 400;
-line-height: 36px;
-letter-spacing: 0px;
-text-align: left;
-
+#CustomerTittleWrapper > label {
+  font-family: "Poppins";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0px;
+  text-align: left;
 }
