@@ -1,30 +1,37 @@
-import React from 'react'
-import module from './SelectedLayout.module.css'
-import HomePage from '../../pages/HomePage/HomePage'
-import TittleBar from '../../components/TittleBar/TittleBar'
+import React from "react";
+import module from "./SelectedLayout.module.css";
+import HomePage from "../../pages/HomePage/HomePage";
+import TittleBar from "../../components/TittleBar/TittleBar";
 import { useSelector } from "react-redux";
-import BooksPage from '../../pages/BooksPage/BooksPage';
-import AuthorPage from '../../pages/AuthorPage/AuthorPage';
+import AddNewButton from "../../components/AddNewButton/AddNewButton";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import TableComponent from "../../components/Table/Table";
 const SelectedLayout = () => {
-    const WhichPageToRender = () => {
-        const SelectedPage = useSelector(
-          (state) => state.SideBarSelction.selectedOption
-        );
-        if (SelectedPage === "Shop") {
-          return <HomePage></HomePage>;
-        } else if (SelectedPage === "Books") {
-            return <BooksPage></BooksPage>
-        } else if(SelectedPage === "Author"){
-          return <AuthorPage></AuthorPage>
-        }
-      };
+  const SelectedPage = useSelector(
+    (state) => state.SideBarSelction.selectedOption
+  );
+  const WhichPageToRender = () => {
+    if (SelectedPage === "Shop") {
+      return <HomePage></HomePage>;
+    } else {
+      return (
+        <>
+          <div id={module.UpperControleWrapper}>
+            <SearchBar key={SelectedPage}></SearchBar>
+            <AddNewButton SelectedPage ={SelectedPage}></AddNewButton>
+          </div>
+          <TableComponent></TableComponent>
+        </>
+      );
+    }
+  };
 
   return (
     <div id={module.SelectedLayoutWrapper}>
-        <TittleBar></TittleBar>
-        {WhichPageToRender()}
+      <TittleBar></TittleBar>
+      {WhichPageToRender()}
     </div>
-  )
-}
+  );
+};
 
-export default SelectedLayout
+export default SelectedLayout;

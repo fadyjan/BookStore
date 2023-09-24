@@ -1,5 +1,11 @@
-#SelectedLayoutWrapper{
-    display: flex;
-    flex-direction: column;
-    width: 82%;
+#SelectedLayoutWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 82%;
+  row-gap: 35px;
+}
+
+#UpperControleWrapper {
+  display: flex;
+  justify-content: space-between;
 }
