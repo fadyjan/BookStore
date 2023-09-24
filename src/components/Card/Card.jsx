@@ -1,7 +1,7 @@
 import React from "react";
 import module from "../Card/Card.module.css";
 import LargeBookstore from "../../assets/LargeBookstore.png";
-import { countBooksByAuthor } from "../../store/DataSlices/DataSlices";
+import { countBooksByAuthor } from "../../store/ReduxSlices/DataSlices";
 
 const Card = ({ data, Tittle }) => {
   let MainTittle = "";
