@@ -4,7 +4,10 @@ import EditIcon from "../../assets/EditIcon.png";
 import DelteIcon from "../../assets/deleteIcon.png";
 
 import { useSelector, useDispatch } from "react-redux";
-import { deleteBookById } from "../../store/DataSlices/DataSlices";
+import {
+  deleteBookById,
+  deleteAuthorById,
+} from "../../store/ReduxSlices/DataSlices";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -15,8 +18,10 @@ import Paper from "@mui/material/Paper";
 
 const TableComponent = () => {
   const dispatch = useDispatch();
-  const OriginalData = useSelector((state) => state.DataBase.searchOutput);
-  const allAuthors = useSelector((state) => state.DataBase.allAuthors);
+  let OriginalData = useSelector((state) => state.DataBase.OriginalData);
+  let allAuthors = useSelector((state) => state.DataBase.allAuthors);
+  const SearchOutPut = useSelector((state) => state.DataBase.searchOutput);
+
   const SelectedPage = useSelector(
     (state) => state.SideBarSelction.selectedOption
   );
@@ -24,14 +29,81 @@ const TableComponent = () => {
   let HeaderTittle = [];
   const HandleDelete = (e) => {
     const SelectedID = e.target.closest("button").id;
-    dispatch(deleteBookById(Number(SelectedID)));
+
+    if (SelectedPage === "Books") {
+      dispatch(deleteBookById(Number(SelectedID)));
+    } else if (SelectedPage === "Author") {
+      dispatch(deleteAuthorById(Number(SelectedID)));
+    }
   };
 
   if (SelectedPage === "Books") {
     HeaderTittle = ["Book ID", "Name", "Pages", "Author Name", "Actions"];
   } else if (SelectedPage === "Author") {
-    HeaderTittle = ["Name"];
+    HeaderTittle = ["Author ID", "Name", "Actions"];
   }
+
+  debugger
+
+  if (SelectedPage === "Books" && SearchOutPut) {
+    OriginalData = SearchOutPut
+  } else if (SelectedPage === "Author" && SearchOutPut) {
+    allAuthors = SearchOutPut
+
+  }
+
+  const whatToRender = () => {
+    if (SelectedPage === "Books") {
+      return ( 
+        OriginalData.map((row) => (
+        <TableRow
+          key={row._id}
+          sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+        >
+          <TableCell component="th" scope="row">
+            {row._id}
+          </TableCell>
+          <TableCell align="left">{row.title}</TableCell>
+          <TableCell align="left">{row.pageCount}</TableCell>
+          <TableCell align="left">{row.authors[0]}</TableCell>
+          <TableCell align="left">
+            <button className={module.BtnIcons}>
+              <img src={EditIcon}></img>
+            </button>
+            <button
+              className={module.BtnIcons}
+              id={row._id}
+              onClick={HandleDelete}
+            >
+              <img src={DelteIcon}></img>
+            </button>
+          </TableCell>
+        </TableRow>
+      )))
+    } else if (SelectedPage === "Author") {
+      return allAuthors.map((row) => (
+        <TableRow
+          key={row._id}
+          sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+        >
+          <TableCell align="left">{"#" + row._id}</TableCell>
+          <TableCell align="left">{row.AuthorName}</TableCell>
+          <TableCell align="left">
+            <button className={module.BtnIcons}>
+              <img src={EditIcon}></img>
+            </button>
+            <button
+              className={module.BtnIcons}
+              id={row._id}
+              onClick={HandleDelete}
+            >
+              <img src={DelteIcon}></img>
+            </button>
+          </TableCell>
+        </TableRow>
+      ));
+    }
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -43,44 +115,7 @@ const TableComponent = () => {
             })}
           </TableRow>
         </TableHead>
-        <TableBody>
-          {SelectedPage === "Books"
-            ? OriginalData.map((row) => (
-                <TableRow
-                  key={row._id}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row._id}
-                  </TableCell>
-                  <TableCell align="left">{row.title}</TableCell>
-                  <TableCell align="left">{row.pageCount}</TableCell>
-                  <TableCell align="left">{row.authors[0]}</TableCell>
-                  <TableCell align="left">
-                    <button className={module.BtnIcons}>
-                      <img src={EditIcon}></img>
-                    </button>
-                    <button
-                      className={module.BtnIcons}
-                      id={row._id}
-                      onClick={HandleDelete}
-                    >
-                      <img src={DelteIcon}></img>
-                    </button>
-                  </TableCell>
-                </TableRow>
-              ))
-            : SelectedPage === "Author"
-            ? allAuthors.map((row) => (
-                <TableRow
-                  key={row + "ID"}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell align="left">{row}</TableCell>
-                </TableRow>
-              ))
-            : null}
-        </TableBody>
+        <TableBody>{whatToRender()}</TableBody>
       </Table>
     </TableContainer>
   );
