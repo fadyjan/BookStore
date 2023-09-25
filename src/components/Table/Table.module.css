@@ -7,3 +7,22 @@
     margin-left: 5px;
     cursor: pointer;
 }
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+    background-color: #F5F5F5;
+  }
+  
+  /* Add a shadow to the scrollbar track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+    border-radius: 5px;
+  }
+  
+  /* Style the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #d86128;
+  }
