@@ -11,6 +11,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const OriginalBooksData = useSelector((state) => state.DataBase.OriginalData);
   const OriginalAuthorsData = useSelector((state) => state.DataBase.allAuthors);
+  const OriginalStoressData = useSelector((state) => state.DataBase.allStores);
 
   let CurrentData = []
 
@@ -25,7 +26,9 @@ const SearchBar = () => {
   } else if (selectedOption === "Author") {
     CurrentData = OriginalAuthorsData
     SearchTerm = 'AuthorName'
-
+  } else if (selectedOption === "Stores") {
+    CurrentData = OriginalStoressData
+    SearchTerm = 'StoreName'
   }
 
   const OnChangeHandler = (e) => {
@@ -46,8 +49,6 @@ const SearchBar = () => {
     } else {
       dispatch(setSearchOutput(filteredData));
     }
-
-    console.log(filteredData)
   };
 
   return (
