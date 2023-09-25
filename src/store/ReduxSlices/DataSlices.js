@@ -1,20 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import ArrayOfData from '../../data/books.json'
 import ArrayofAuthors from '../../data/Authors.json'
+import ArrayofStores from '../../data/Stores.json'
 
-
-export function countBooksByAuthor(authorName) {
-    const booksByAuthor = ArrayOfData.filter(book =>
-        book.authors.includes(authorName)
-    );
-    return booksByAuthor.length;
-}
 
 
 const initialState = {
     OriginalData: ArrayOfData,
     allAuthors: ArrayofAuthors,
-    searchOutput: [],
+    allStores:ArrayofStores,
+    searchOutput: undefined,
     searchStatus: "notIntailezed",
 };
 
@@ -36,8 +31,23 @@ export const dataSlice = createSlice({
 
             // Add the new book to OriginalData
             state.OriginalData.push(newBook);
-            state.searchOutput.push(newBook);
 
+        },
+
+        addNewStore: (state, action) => {
+            // Extract book data from the action payload
+            const { storeName, storeAddress} = action.payload;
+            const currentID = state.allStores.length + 2
+            // Create a new book object
+            const newBook = {
+                '_ID': currentID,
+                'StoreName': storeName,
+                'Address': storeAddress,
+    
+            };
+
+            // Add the new book to OriginalData
+            state.allStores.push(newBook);
         },
         addNewAuthor: (state, action) => {
             // Extract book data from the action payload
@@ -69,7 +79,10 @@ export const dataSlice = createSlice({
             } else if (action.payload === 'Author') {
               // Reset searchOutput for Author
               state.searchOutput = action.payload.OriginalAuthorsData
-            }
+            } else if (action.payload === 'Stores') {
+                // Reset searchOutput for Author
+                state.searchOutput = action.payload.OriginalStoresData
+              } 
           
             // You can also add additional conditions or logic as needed
           
@@ -81,6 +94,19 @@ export const dataSlice = createSlice({
             const authorIdToDelete = action.payload;
             state.allAuthors = state.allAuthors.filter(
                 (author) => author._id !== authorIdToDelete
+            );
+            state.searchOutput = state.allAuthors.filter(
+                (author) => author._id !== authorIdToDelete
+            );
+        },
+
+        deleteStoresById: (state, action) => {
+            const storeIdToDelete = action.payload;
+            state.allStores = state.allStores.filter(
+                (store) => store._ID !== storeIdToDelete
+            );
+            state.searchOutput = state.allStores.filter(
+                (store) => store._ID !== storeIdToDelete
             );
         },
 
@@ -96,5 +122,5 @@ export const dataSlice = createSlice({
 
 
 
-export const { deleteBookById,resetSearchOutput,deleteAuthorById, addNewBook, addNewAuthor,setSearchOutput, setSearchTerm } = dataSlice.actions
+export const {deleteStoresById, addNewStore ,deleteBookById,resetSearchOutput,deleteAuthorById, addNewBook, addNewAuthor,setSearchOutput, setSearchTerm } = dataSlice.actions
 export default dataSlice.reducer;
