@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   deleteBookById,
   deleteAuthorById,
+  deleteStoresById,
 } from "../../store/ReduxSlices/DataSlices";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -15,18 +16,24 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+import {
+  prepareTableHeader,
+  prepareTableContent,removeUnnecessryKeys
+} from "../../utils/utilsFunctions";
 const TableComponent = () => {
   const dispatch = useDispatch();
   let OriginalData = useSelector((state) => state.DataBase.OriginalData);
   let allAuthors = useSelector((state) => state.DataBase.allAuthors);
+  let allStores = useSelector((state) => state.DataBase.allStores);
+
   const SearchOutPut = useSelector((state) => state.DataBase.searchOutput);
 
   const SelectedPage = useSelector(
-    (state) => state.SideBarSelction.selectedOption
+    (state) => state.SideBarSelction.selectedOption 
   );
 
-  let HeaderTittle = [];
+  let HeaderTittle,
+    TableData = [];
   const HandleDelete = (e) => {
     const SelectedID = e.target.closest("button").id;
 
@@ -34,67 +41,37 @@ const TableComponent = () => {
       dispatch(deleteBookById(Number(SelectedID)));
     } else if (SelectedPage === "Author") {
       dispatch(deleteAuthorById(Number(SelectedID)));
+    } else if (SelectedPage === "Stores") {
+      dispatch(deleteStoresById(Number(SelectedID)));
     }
   };
-
-  if (SelectedPage === "Books") {
-    HeaderTittle = ["Book ID", "Name", "Pages", "Author Name", "Actions"];
-  } else if (SelectedPage === "Author") {
-    HeaderTittle = ["Author ID", "Name", "Actions"];
-  }
-
-  debugger
-
-  if (SelectedPage === "Books" && SearchOutPut) {
-    OriginalData = SearchOutPut
-  } else if (SelectedPage === "Author" && SearchOutPut) {
-    allAuthors = SearchOutPut
-
-  }
-
+  HeaderTittle = prepareTableHeader(SelectedPage);
+  TableData = prepareTableContent(
+    SelectedPage,
+    SearchOutPut,
+    OriginalData,
+    allAuthors,
+    allStores
+  );
+  TableData= removeUnnecessryKeys(SelectedPage,TableData)
   const whatToRender = () => {
-    if (SelectedPage === "Books") {
-      return ( 
-        OriginalData.map((row) => (
+
+      return TableData.map((row) => (
         <TableRow
-          key={row._id}
+          key={row._ID}
           sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
         >
-          <TableCell component="th" scope="row">
-            {row._id}
-          </TableCell>
-          <TableCell align="left">{row.title}</TableCell>
-          <TableCell align="left">{row.pageCount}</TableCell>
-          <TableCell align="left">{row.authors[0]}</TableCell>
+          {Object.keys(row).map((key) => {
+            return <TableCell align="left">{row[key]}</TableCell>;
+          })}
+
           <TableCell align="left">
             <button className={module.BtnIcons}>
               <img src={EditIcon}></img>
             </button>
             <button
               className={module.BtnIcons}
-              id={row._id}
-              onClick={HandleDelete}
-            >
-              <img src={DelteIcon}></img>
-            </button>
-          </TableCell>
-        </TableRow>
-      )))
-    } else if (SelectedPage === "Author") {
-      return allAuthors.map((row) => (
-        <TableRow
-          key={row._id}
-          sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-        >
-          <TableCell align="left">{"#" + row._id}</TableCell>
-          <TableCell align="left">{row.AuthorName}</TableCell>
-          <TableCell align="left">
-            <button className={module.BtnIcons}>
-              <img src={EditIcon}></img>
-            </button>
-            <button
-              className={module.BtnIcons}
-              id={row._id}
+              id={row._ID}
               onClick={HandleDelete}
             >
               <img src={DelteIcon}></img>
@@ -102,16 +79,20 @@ const TableComponent = () => {
           </TableCell>
         </TableRow>
       ));
-    }
+    
   };
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} style={{ height: "65%" }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             {HeaderTittle.map((TableCellContent) => {
-              return <TableCell align="left">{TableCellContent}</TableCell>;
+              return (
+                <TableCell key={TableCellContent} align="left">
+                  {TableCellContent}
+                </TableCell>
+              );
             })}
           </TableRow>
         </TableHead>
