@@ -2,11 +2,9 @@ import React from "react";
 import module from "./ModalBody.module.css";
 import { useSelector } from "react-redux";
 
-const ModalBody = ({ bookNameRef, authorRef, numberOfPagesRef }) => {
+const ModalBody = ({selectedOption, bookNameRef, authorRef, numberOfPagesRef }) => {
   const authors = useSelector((state) => state.DataBase.allAuthors);
-  const selectedOption = useSelector(
-    (state) => state.SideBarSelction.selectedOption
-  );
+
 
   const WhatToRender = () => {
     if (selectedOption === "Books") {
