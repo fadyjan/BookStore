@@ -12,22 +12,32 @@ Welcome to the Bookstore App GitHub repository! This project is a Vite React-bas
 ## Installation
 To run this project on your local machine, follow these steps:
 
-1. **Clone the Repository**:
-2. cd BookStore
-3. npm install
-4. npm run dev
+1. **Clone the Repository**
 
-## Project Folder Architecture
+2. Open Project Folder
+   ```
+   cd BookStore
+   ```
+3. Install Dependencies
+   ```
+   npm install
+   ```
+4. Run Project Entry Point
 
-src
-|-- components
-|-- layouts
-|-- pages
-|-- store
-|-- utils
-|-- fonts
-|-- assets
-|-- data
+   ```
+   npm run dev
+   ```
+
+##  Project Folder Architecture
+        - components
+        - layouts
+        - pages
+        - store
+        - utils
+        - fonts
+        - assets
+        - data
+
 
 components: This folder contains reusable React components that can be used across multiple pages or features in the application.
 
