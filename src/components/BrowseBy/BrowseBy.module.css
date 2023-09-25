@@ -46,8 +46,3 @@
 }
 
 
-@media (max-width:570px) {
-  .UpperDiv {
-    flex-direction: column;
-  }
-}

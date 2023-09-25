@@ -25,3 +25,18 @@
         height: 45%;
     }
 }
+
+@media (max-width : 570px) {
+    #BooksGridWrapper{
+        height: unset;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: unset;
+    }
+
+    #BooksGridWrapper >div{
+        flex-direction: row;
+        width: 87%;
+        height: 100px !important;
+    }
+}

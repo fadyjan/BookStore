@@ -39,3 +39,12 @@ body{
     display: flex;
     column-gap: 33px;
 }
+
+@media (max-width:570px) {
+  body{
+    height: unset;
+  }
+  #root{
+    flex-direction: column;
+  }
+}

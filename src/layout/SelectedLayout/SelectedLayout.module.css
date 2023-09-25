@@ -9,3 +9,15 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+@media (max-width:570px) {
+  #SelectedLayoutWrapper {
+    height: 93%;
+    width: 100%;
+  }
+
+  #UpperControleWrapper {
+    align-items: center;
+  }
+}

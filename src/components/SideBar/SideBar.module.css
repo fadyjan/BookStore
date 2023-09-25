@@ -95,3 +95,39 @@
 .Active > img {
   filter: invert(37%) sepia(11%) saturate(4632%) hue-rotate(341deg) brightness(102%) contrast(91%);
 }
+
+@media (max-width:570px) {
+  #SideBarWrapper {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .LiElement > img{
+      display: none;
+  }
+
+  .LiElement{
+    width: 100px;
+    padding: unset;
+    justify-content: center;
+  }
+  .LiElement >a{
+    text-align: center;
+  }
+  #UnOrderdListWrapper{
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: space-around;
+  }
+
+  #BookStoreWrapper{
+    display: none;
+  }
+
+  .Active{
+    border-left: unset;
+    border-bottom: 2px solid #BF5523 ;
+    box-sizing: border-box;
+  
+  }
+}
