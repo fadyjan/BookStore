@@ -40,7 +40,7 @@ export const dataSlice = createSlice({
             const currentID = state.allStores.length + 2
             // Create a new book object
             const newBook = {
-                '_ID': currentID,
+                '_id': currentID,
                 'StoreName': storeName,
                 'Address': storeAddress,
     
@@ -69,9 +69,13 @@ export const dataSlice = createSlice({
                 (book) => book._id !== bookIdToDelete
             );
 
-            state.searchOutput = state.searchOutput.filter(
-                (book) => book._id !== bookIdToDelete
-            );
+
+
+            if (state.searchOutput) {
+                state.searchOutput = state.searchOutput.filter(
+                    (book) => book._id !== bookIdToDelete
+                );
+            }
         },resetSearchOutput: (state, action) => {
             if (action.payload === 'Books') {
               // Reset searchOutput for Books
@@ -95,19 +99,25 @@ export const dataSlice = createSlice({
             state.allAuthors = state.allAuthors.filter(
                 (author) => author._id !== authorIdToDelete
             );
-            state.searchOutput = state.allAuthors.filter(
-                (author) => author._id !== authorIdToDelete
-            );
+            if (state.searchOutput) {
+                state.searchOutput = state.searchOutput.filter(
+                    (author) => author._id !== authorIdToDelete
+                );
+            }
+
         },
 
         deleteStoresById: (state, action) => {
             const storeIdToDelete = action.payload;
             state.allStores = state.allStores.filter(
-                (store) => store._ID !== storeIdToDelete
+                (store) => store._id !== storeIdToDelete
             );
-            state.searchOutput = state.allStores.filter(
-                (store) => store._ID !== storeIdToDelete
-            );
+            if (state.searchOutput) {
+                state.searchOutput = state.searchOutput.filter(
+                    (store) => store._id !== storeIdToDelete
+                );
+            }
+
         },
 
         setSearchOutput: (state, action) => {

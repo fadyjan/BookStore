@@ -35,7 +35,8 @@ const TableComponent = () => {
   let HeaderTittle,
     TableData = [];
   const HandleDelete = (e) => {
-    const SelectedID = e.target.closest("button").id;
+    let SelectedID = e.target.closest("button").id;
+    SelectedID = SelectedID.split('#')[1]
 
     if (SelectedPage === "Books") {
       dispatch(deleteBookById(Number(SelectedID)));
@@ -45,6 +46,10 @@ const TableComponent = () => {
       dispatch(deleteStoresById(Number(SelectedID)));
     }
   };
+
+  const HandleEdit = (e)=>{
+    
+  }
   HeaderTittle = prepareTableHeader(SelectedPage);
   TableData = prepareTableContent(
     SelectedPage,
@@ -58,7 +63,7 @@ const TableComponent = () => {
 
       return TableData.map((row) => (
         <TableRow
-          key={row._ID}
+          key={row._id}
           sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
         >
           {Object.keys(row).map((key) => {
@@ -66,12 +71,12 @@ const TableComponent = () => {
           })}
 
           <TableCell align="left">
-            <button className={module.BtnIcons}>
+            <button className={module.BtnIcons} onClick={HandleEdit}>
               <img src={EditIcon}></img>
             </button>
             <button
               className={module.BtnIcons}
-              id={row._ID}
+              id={row._id}
               onClick={HandleDelete}
             >
               <img src={DelteIcon}></img>

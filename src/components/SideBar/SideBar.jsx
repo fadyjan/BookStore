@@ -10,8 +10,6 @@ import { setSelected } from "../../store/ReduxSlices/SideBarSlice";
 import { resetSearchOutput } from "../../store/ReduxSlices/DataSlices";
 
 export const SideBar = () => {
-  debugger
-
   const selectedOption = useSelector((state) => state.SideBarSelction.selectedOption);
 
   const OriginalBooksData = useSelector((state) => state.DataBase.OriginalData);
@@ -21,7 +19,6 @@ export const SideBar = () => {
   const dispatch = useDispatch();
   const HandleSelection = (e)=>{
     const SelectedOption = e.target.closest('li').getAttribute('litittile') 
-
     dispatch(setSelected(SelectedOption));
     dispatch(resetSearchOutput(SelectedOption,OriginalBooksData,OriginalAuthorsData,OriginalStoresData));
 

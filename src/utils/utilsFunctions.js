@@ -2,6 +2,20 @@ import LargeBookstore from "../assets/LargeBookstore.png";
 import ArrayOfData from '../data/books.json'
 
 
+export function HandleHeader(selectedOption){
+let header = ''
+    if (selectedOption == 'Books') {
+        header ='Book'
+    }
+    else if(selectedOption == 'Stores'){
+        header ='Store'
+    } else{
+        header=selectedOption
+    }
+
+    return header
+}
+
 export function countBooksByAuthor(authorName) {
     const booksByAuthor = ArrayOfData.filter(book =>
         book.authors.includes(authorName)
@@ -69,7 +83,7 @@ export function removeUnnecessryKeys(SelectedPage,TableData){
     
     else if (SelectedPage === "Stores" ) {
         FiltredTableData = TableData.map(item => ({
-            _ID: "#"+item._ID,
+            _id: "#"+item._id,
             StoreName: item.StoreName,
             Address: item.Address,
 

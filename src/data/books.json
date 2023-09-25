@@ -6,7 +6,7 @@
         "pageCount": 416,
         "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ableson.jpg",
         "authors": [ "W. Frank Ableson"],
-        "authorImage": ["../src/assets/Author1.jpg"]
+        "authorImage": ["../assets/Author1.jpg"]
         
 
     },
@@ -18,7 +18,7 @@
 
         "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ableson2.jpg",
         "authors": ["W. Frank Ableson"],
-        "authorImage": ["../src/assets/Author2.png"]
+        "authorImage": ["./assets/Author2.png"]
     },
     {
         "stores": [{"StoreName":"Amreciana","Price":"10$" }],
@@ -30,7 +30,7 @@
 
         "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/adzic.jpg",
         "authors": [  "Gojko Adzic"],
-        "authorImage": ["../src/assets/Author3.jpg"]
+        "authorImage": ["./assets/Author3.jpg"]
 
     },
     {
