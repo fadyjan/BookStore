@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import AddNewButton from "../../components/AddNewButton/AddNewButton";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import TableComponent from "../../components/Table/Table";
+import BooksGrid from '../../components/BooksGrid/BooksGrid'
 const SelectedLayout = () => {
   const SelectedPage = useSelector(
     (state) => state.SideBarSelction.selectedOption
@@ -13,6 +14,8 @@ const SelectedLayout = () => {
   const WhichPageToRender = () => {
     if (SelectedPage === "Shop") {
       return <HomePage></HomePage>;
+    } else if(SelectedPage === "AllBooks"){
+      return <BooksGrid></BooksGrid>
     } else {
       return (
         <>
