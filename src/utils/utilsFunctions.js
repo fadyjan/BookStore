@@ -1,5 +1,11 @@
 import LargeBookstore from "../assets/LargeBookstore.png";
+import Author1Img from "../assets/Author1.jpg";
+import Author2Img from "../assets/Author2.png";
+import Author3Img from "../assets/Author3.jpg";
+
 import ArrayOfData from '../data/books.json'
+const authorImages = [Author1Img, Author2Img, Author3Img]
+let currentImageIndex = 0;
 
 
 export function HandleHeader(selectedOption){
@@ -127,7 +133,9 @@ export function DestructruingData(data,Tittle){
       } else if (Tittle == "Authors") {
         MainTittle = data.AuthorName;
         SecondaryTittle = "Publish books :" + countBooksByAuthor(data.AuthorName);
-        IamgeSource = data.authorImage
+        IamgeSource = authorImages[currentImageIndex];
+        currentImageIndex = (currentImageIndex + 1) % authorImages.length;
+
     
       } else if (Tittle == "Books") {
         MainTittle = data.title;
