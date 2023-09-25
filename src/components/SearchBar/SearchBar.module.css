@@ -55,4 +55,12 @@
     align-items: center;
     row-gap: 10px;
   }
+
+  #SearchIcon {
+    display: none;
+  }
+
+  #SearchInput {
+  padding-left: 10px;
+  }
 }
