@@ -45,17 +45,38 @@ const ModalBody = ({ bookNameRef, authorRef, numberOfPagesRef }) => {
         </>
       );
     } else if (selectedOption === "Author") {
-        return(
-            <div className={module.OnlyRow}>
-            <label>Author Name</label>
+      return (
+        <div className={module.OnlyRow}>
+          <label>Author Name</label>
+          <input
+            className={module.InputRow}
+            ref={authorRef}
+            placeholder="Enter Author Full Name"
+          ></input>
+        </div>
+      );
+    } else if (selectedOption === "Stores") {
+      return (
+        <>
+          <div className={module.Row}>
+            <label>Store Name</label>
+            <input
+              className={module.InputRow}
+              ref={bookNameRef}
+              placeholder="Enter Store Name"
+            ></input>
+          </div>
+
+          <div className={module.Row}>
+            <label>Enter Store Name</label>
             <input
               className={module.InputRow}
               ref={authorRef}
-              placeholder="Enter Author Full Name"
+              placeholder="Enter Store Address"
             ></input>
           </div>
-        )
-
+        </>
+      );
     }
   };
 

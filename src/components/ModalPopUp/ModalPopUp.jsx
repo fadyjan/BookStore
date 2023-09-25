@@ -27,7 +27,8 @@ const ModalPopUp = ({ onClose, isModalOpen }) => {
             authorRef={authorRef}
             numberOfPagesRef={numberOfPagesRef}
           ></ModalBody>
-          
+         </div>
+
           <div id={module.Line}></div>
 
           <ModalActions
@@ -36,7 +37,6 @@ const ModalPopUp = ({ onClose, isModalOpen }) => {
             numberOfPagesRef={numberOfPagesRef}
             onClose={onClose}
           ></ModalActions>
-        </div>
       </div>
     </>
   );

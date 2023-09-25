@@ -1,9 +1,10 @@
 #ActionSection {
     display: flex;
-    width: 100%;
+    width: 95%;
     flex-direction: row;
     justify-content: end;
     column-gap: 16px;
+    height: 15%;
   }
   
   #ActionSection > button {

@@ -1,7 +1,7 @@
 import React from 'react'
 import module from './ModalActions.module.css'
 import { useDispatch,useSelector } from "react-redux";
-import { addNewBook,addNewAuthor } from "../../store/ReduxSlices/DataSlices";
+import { addNewBook,addNewAuthor,addNewStore } from "../../store/ReduxSlices/DataSlices";
 
 const ModalActions = ({onClose , bookNameRef ,authorRef,numberOfPagesRef}) => {
     const dispatch = useDispatch();
@@ -12,8 +12,6 @@ const ModalActions = ({onClose , bookNameRef ,authorRef,numberOfPagesRef}) => {
         onClose(); 
       };
     const handleAddingNewBook = () => {
-
-
         if (selectedOption === "Books") {
             const bookName = bookNameRef.current.value;
             const numberOfPages = numberOfPagesRef.current.value;
@@ -24,6 +22,11 @@ const ModalActions = ({onClose , bookNameRef ,authorRef,numberOfPagesRef}) => {
             const author = authorRef.current.value;
             dispatch(addNewAuthor({ author }));
 
+        } else if(selectedOption === "Stores"){
+          const storeName = bookNameRef.current.value;
+          const storeAddress = authorRef.current.value;
+
+          dispatch(addNewStore({ storeName , storeAddress}));
         }
         handleClose();
       };
