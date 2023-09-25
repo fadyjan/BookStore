@@ -45,6 +45,8 @@ body{
     height: unset;
   }
   #root{
+    align-items: center;
+
     flex-direction: column;
   }
 }

@@ -11,11 +11,18 @@
   letter-spacing: 0px;
   padding: 0 10px;
   min-width: 132px;
+  width: unset;
 }
-
+#ButtonDivWrapper{
+  width: unset;
+}
 
 @media (max-width:570px) {
   #ButtonWrapper {
     font-size: 12px;
+    width: 100%;
+  }
+  #ButtonDivWrapper{
+    width: 100%;
   }
 }

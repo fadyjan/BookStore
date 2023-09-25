@@ -11,7 +11,7 @@ const AddNewButton = ({ SelectedPage }) => {
   };
 
   return (
-    <div>
+    <div id={module.ButtonDivWrapper}>
       <button onClick={HandleShowPopUp} id={module.ButtonWrapper}>{"Add New "+ ButtonSpan}</button>
       {isModalOpen && (
         <ModalPopUp

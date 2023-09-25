@@ -14,10 +14,12 @@
 @media (max-width:570px) {
   #SelectedLayoutWrapper {
     height: 93%;
-    width: 100%;
+    width: 97%;
   }
 
   #UpperControleWrapper {
+    flex-direction: column;
+    row-gap: 17px;
     align-items: center;
   }
 }
