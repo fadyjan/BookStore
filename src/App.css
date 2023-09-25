@@ -32,9 +32,10 @@ body{
 }
 
 #root{
+  height: 100%;
+
     width: 100%;
     background-color: #f1f1f1;
     display: flex;
     column-gap: 33px;
-    min-height: 100vh;
 }
