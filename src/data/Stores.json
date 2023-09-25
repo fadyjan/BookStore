@@ -1,0 +1,23 @@
+ [
+  { "_ID": 1, "StoreName": "HappyMart", "Address": "123 Sunshine Blvd" },
+  { "_ID": 2, "StoreName": "SmileGroceries", "Address": "456 Joyful Ave" },
+  { "_ID": 3, "StoreName": "FriendlyFoods", "Address": "789 Happiness Ln" },
+  { "_ID": 4, "StoreName": "CheerfulCorner", "Address": "101 Laughter St" },
+  { "_ID": 5, "StoreName": "PleasantProduce", "Address": "222 Harmony Rd" },
+  { "_ID": 6, "StoreName": "JoyfulGrocers", "Address": "333 Fun Street" },
+  { "_ID": 7, "StoreName": "SunnySupermart", "Address": "444 Rainbow Lane" },
+  { "_ID": 8, "StoreName": "BlissfulBazaar", "Address": "555 Serenity Dr" },
+  { "_ID": 9, "StoreName": "GleefulGrocery", "Address": "666 Jolly Avenue" },
+  { "_ID": 10, "StoreName": "DelightfulMarket", "Address": "777 Playful Place" },
+  { "_ID": 11, "StoreName": "HappyHarvest", "Address": "888 Laughter Lane" },
+  { "_ID": 12, "StoreName": "JoyMart", "Address": "999 Sunshine Rd" },
+  { "_ID": 13, "StoreName": "ContentCorner", "Address": "111 Delight Street" },
+  { "_ID": 14, "StoreName": "CarefreeGrocers", "Address": "222 Serenity Blvd" },
+  { "_ID": 15, "StoreName": "MerryMarket", "Address": "333 Joy Avenue" },
+  { "_ID": 16, "StoreName": "RadiantRations", "Address": "444 Happiness Ln" },
+  { "_ID": 17, "StoreName": "PeacefulProduce", "Address": "555 Blissful Blvd" },
+  { "_ID": 18, "StoreName": "TranquilTreats", "Address": "666 Calm Street" },
+  { "_ID": 19, "StoreName": "GigglesGrocery", "Address": "777 Serenity Ave" },
+  { "_ID": 20, "StoreName": "PlayfulPantry", "Address": "888 Laughter Lane" }
+]
+

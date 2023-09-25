@@ -1,98 +1,114 @@
-[
+ [
     {
+        "_id": 1,
         "AuthorName": "W. Frank Ableson",
-        "_id": 1
-    },
-    {
+        "authorImage": "../src/assets/Author1.jpg"
+    },{
+        "_id": 2,
         "AuthorName": "Gojko Adzic",
-        "_id": 2
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 3,
         "AuthorName": "Tariq Ahmed with Jon Hirschi",
-        "_id": 3
+        "authorImage": "../src/assets/Author3.jpg"
     },
     {
+        "_id": 4,
         "AuthorName": "Tariq Ahmed",
-        "_id": 4
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 5,
         "AuthorName": "Satnam Alag",
-        "_id": 5
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 6,
         "AuthorName": "Rob Allen",
-        "_id": 6
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 7,
         "AuthorName": "Bernerd Allmon",
-        "_id": 7
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 8,
         "AuthorName": "Andres Almiray",
-        "_id": 8
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 9,
         "AuthorName": "Alexandre de Castro Alves",
-        "_id": 9
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 10,
         "AuthorName": "Peter Armstrong",
-        "_id": 10
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 11,
         "AuthorName": "Levi Asher",
-        "_id": 11
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 12,
         "AuthorName": "Jamil Azher",
-        "_id": 12
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 13,
         "AuthorName": "Kyle Baley",
-        "_id": 13
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 14,
         "AuthorName": "Kyle Banker",
-        "_id": 14
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 15,
         "AuthorName": "Michael J. Barlotta",
-        "_id": 15
+        "authorImage": "../src/assets/Author2.png"
     },
     {
+        "_id": 16,
         "AuthorName": "Michael Barlotta",
-        "_id": 16
+        "authorImage": "../src/assets/Author2.png"
     },
     {
-        "AuthorName": "Michael J. Barlotta",
-        "_id": 17
+        "_id": 17,
+        "AuthorName": "Michael J. Barlotta"
     },
     {
-        "AuthorName": "Jon Barrilleaux",
-        "_id": 18
+        "_id": 18,
+        "AuthorName": "Jon Barrilleaux"
     },
     {
-        "AuthorName": "Christian Bauer",
-        "_id": 19
+        "_id": 19,
+        "AuthorName": "Christian Bauer"
     },
     {
-        "AuthorName": "Shawn Bayern",
-        "_id": 21
+        "_id": 21,
+        "AuthorName": "Shawn Bayern"
     },
     {
-        "AuthorName": "Clinton Begin",
-        "_id": 22
+        "_id": 22,
+        "AuthorName": "Clinton Begin"
     },
     {
-        "AuthorName": "Douglas W. Bennett",
-        "_id": 23
+        "_id": 23,
+        "AuthorName": "Douglas W. Bennett"
     },
     {
-        "AuthorName": "Emmanuel Bernard",
-        "_id": 24
+        "_id": 24,
+        "AuthorName": "Emmanuel Bernard"
     },
     {
-        "AuthorName": "Bear Bibeault",
-        "_id": 25
+        "_id": 25,
+        "AuthorName": "Bear Bibeault"
     }
 ]
+
