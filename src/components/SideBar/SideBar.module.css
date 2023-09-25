@@ -1,11 +1,11 @@
 #SideBarWrapper {
-  height: 100 vh;
   width: 14.3%;
   background-color: #ffffff;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 230px
 }
 
 #ShopStoreLogo {
